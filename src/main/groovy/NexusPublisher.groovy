@@ -49,15 +49,15 @@ serverConfig = new ServerConfig(options.serverurl, new Authentication(options.us
 client = new RepositoryManagerV3ClientBuilder().withServerConfig(serverConfig).build()
 
 // utility function to convert attribute list to map
-toMap = { list -> (0..list.size()-1).step(2).collectEntries { [(list[it]): list[it+1]] } }
+//toMap = { list -> (0..list.size()-1).step(2).collectEntries { [(list[it]): list[it+1]] } }
 
 // set component coordinates
 component = new DefaultComponent(options.format)
-toMap(options.Cs).each { component.addAttribute(it.key, it.value) }
+//toMap(options.Cs).each { component.addAttribute(it.key, it.value) }
 
 // set asset attributes
 asset = new DefaultAsset(options.filename.name, options.filename.newInputStream())
-toMap(options.As).each { asset.addAttribute(it.key, it.value) }
+//toMap(options.As).each { asset.addAttribute(it.key, it.value) }
 component.addAsset(asset)
 
 // upload to nexus repository
