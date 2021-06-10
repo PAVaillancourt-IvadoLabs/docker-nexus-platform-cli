@@ -30,9 +30,9 @@ cli.p(type: String, longOpt: 'password', 'Password', required: true)
 cli.f(type: String, longOpt: 'format', 'Artifact format. Examples: maven2', required: true)
 cli._(longOpt: 'filename', 'Filename to upload', convert: {new File(it)}, required: true)
 cli.C(args:2, valueSeparator:'=', argName:'key=value', 'Component coordinates, can be used multiple times. Example: ' +
-    '-CgroupId=com.example -CartifactId=myapp -Cversion=1.0', required: true)
+    '-CgroupId=com.example -CartifactId=myapp -Cversion=1.0')
 cli.A(args:2, valueSeparator:'=', argName:'key=value', 'Asset attributes, can be used multiple times. Example: ' +
-    '-Aextension=jar -Aclassifier=bin', required: true)
+    '-Aextension=jar -Aclassifier=bin')
 cli.r(type: String, longOpt: 'repository', 'Name of target repository on Nexus. Example: maven-releases', required: true)
 cli._(type: String, longOpt: 'tagname', 'The tag to apply (tag must already exist)')
 options = cli.parse(args)
