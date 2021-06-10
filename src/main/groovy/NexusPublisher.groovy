@@ -28,7 +28,7 @@ cli._(longOpt: 'serverurl', 'URL of nexus repository manager server', convert: {
 cli.u(type: String, longOpt: 'username', 'Username', required: true)
 cli.p(type: String, longOpt: 'password', 'Password', required: true)
 cli.f(type: String, longOpt: 'format', 'Artifact format. Examples: maven2', required: true)
-cli._(longOpt: 'filename', 'Filename to upload', convert: {new File(it)}, required: true)
+//cli._(longOpt: 'filename', 'Filename to upload', convert: {new File(it)})
 cli.C(args:2, valueSeparator:'=', argName:'key=value', 'Component coordinates, can be used multiple times. Example: ' +
     '-CgroupId=com.example -CartifactId=myapp -Cversion=1.0')
 cli.A(args:2, valueSeparator:'=', argName:'key=value', 'Asset attributes, can be used multiple times. Example: ' +
