@@ -19,8 +19,14 @@ import com.sonatype.nexus.api.repository.v3.RepositoryManagerV3ClientBuilder
 
 import groovy.cli.commons.CliBuilder
 
+import java.util.logging.Logger
+
 @Grab(group='org.slf4j', module='slf4j-simple', version='1.7.25')
 @Grab(group='com.sonatype.nexus', module='nexus-platform-api', version='3.5.20190215-094356.8a0ba7f')
+
+Logger logger = Logger.getLogger("")
+logger.info ("I am a test info log")
+logger.error ("I am a test error log")
 
 cli = new CliBuilder(usage: 'Repository', expandArgumentFiles: true)
 cli.h(type: Boolean, longOpt: 'help', 'Prints this help text')
