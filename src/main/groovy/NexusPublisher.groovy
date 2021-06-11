@@ -26,7 +26,6 @@ import java.util.logging.Logger
 
 Logger logger = Logger.getLogger("")
 logger.info ("I am a test info log")
-logger.error ("I am a test error log")
 
 cli = new CliBuilder(usage: 'Repository', expandArgumentFiles: true)
 cli.h(type: Boolean, longOpt: 'help', 'Prints this help text')
@@ -49,22 +48,31 @@ if (options.h) {
   cli.usage()
   System.exit(0)
 }
+logger.info ("CLI created.")
 
 // create client
+logger.info ("Creating client...")
 serverConfig = new ServerConfig(options.serverurl, new Authentication(options.username, options.password))
 client = new RepositoryManagerV3ClientBuilder().withServerConfig(serverConfig).build()
+logger.info ("Client created.")
 
 // utility function to convert attribute list to map
 //toMap = { list -> (0..list.size()-1).step(2).collectEntries { [(list[it]): list[it+1]] } }
 
 // set component coordinates
+logger.info ("Setting component coordinates...")
 component = new DefaultComponent(options.format)
 //toMap(options.Cs).each { component.addAttribute(it.key, it.value) }
+logger.info ("Coordinates set.")
 
 // set asset attributes
+logger.info ("Setting asset attributes.")
 asset = new DefaultAsset(options.filename.name, options.filename.newInputStream())
 //toMap(options.As).each { asset.addAttribute(it.key, it.value) }
 component.addAsset(asset)
+logger.info ("Attributes set.")
 
 // upload to nexus repository
+logger.info ("Uploading to repo...")
 client.upload(options.repository, component)
+logger.info ("Upload finished!")
